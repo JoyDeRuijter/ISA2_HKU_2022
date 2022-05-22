@@ -16,6 +16,17 @@ public class NPC : MonoBehaviour
     protected Animator anim;
     protected CapsuleCollider col;
 
+    // Movement & Pathfinding
+    [HideInInspector] public float moveSpeed;
+    [HideInInspector] public Transform pathTransform;
+    [HideInInspector] public bool pathIsACircuit;
+    [HideInInspector] public int pathStartNode;
+    [HideInInspector] public Direction pathStartDirection;
+    [HideInInspector] public int currentNode;
+    protected Direction currentDirection;
+    protected NodePath path;
+    protected List<Transform> nodes = new List<Transform>();
+
     #endregion
 
     public NPC(NPCType _npcType, string _name)
@@ -106,6 +117,69 @@ public class NPC : MonoBehaviour
                 break;
         }
     }
+
+    #region Movement & Pathfinding
+
+    protected void InitializePath()
+    {
+        Transform[] pathTransforms = pathTransform.GetComponentsInChildren<Transform>();
+        if (nodes == null)
+            nodes = new List<Transform>();
+
+        for (int i = 0; i < pathTransforms.Length; i++)
+        {
+            if (pathTransforms[i] != pathTransform.transform)
+                nodes.Add(pathTransforms[i]);
+        }
+    }
+
+    public virtual void Move()
+    {
+        CheckWaypointDistance();
+        MoveToNode();
+    }
+
+    protected void MoveToNode()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, nodes[currentNode].position, Time.deltaTime * moveSpeed);
+        transform.LookAt(nodes[currentNode].position);
+        transform.rotation = Quaternion.Euler(0, transform.localEulerAngles.y, 0);
+    }
+
+    protected void FlipDirection()
+    {
+        if (currentDirection == Direction.forward)
+            currentDirection = Direction.backward;
+        else if (currentDirection == Direction.backward)
+            currentDirection = Direction.forward;        
+    }
+
+    protected void CheckWaypointDistance()
+    {
+        if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.5f)
+        {
+            if (currentNode == nodes.Count - 1 && currentDirection == Direction.forward && !path.isACircuit)
+            {
+                FlipDirection();
+                currentNode--;
+            }
+            else if (currentNode == nodes.Count - 1 && currentDirection == Direction.forward && path.isACircuit)
+                currentNode = 0;
+            else if (currentNode == 0 && currentDirection == Direction.backward && !path.isACircuit)
+            {
+                FlipDirection();
+                currentNode++;
+            }
+            else if (currentNode == 0 && currentDirection == Direction.backward && path.isACircuit)
+                currentNode = nodes.Count - 1;
+            else if (currentDirection == Direction.forward)
+                currentNode++;
+            else if (currentDirection == Direction.backward)
+                currentNode--;
+        }
+    }
+
+    #endregion
 }
 
 public enum Direction { forward, backward }
