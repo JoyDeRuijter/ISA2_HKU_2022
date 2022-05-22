@@ -12,6 +12,10 @@ public class Weapon : ScriptableObject
     [Space(10)]
     public GameObject weaponPrefab;
 
+    [Header("Weapon Properties")]
+    public float damage;
+    public float range;
+
     [Header("Spawn Data")]
     [Space(10)]
     public Vector3 spawnPosition;

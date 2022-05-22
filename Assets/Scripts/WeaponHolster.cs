@@ -21,20 +21,20 @@ public class WeaponHolster : MonoBehaviour
 
     private void Awake()
     {
-        currentWeapon = weapons[selectedWeapon];
-        prefabCurrentWeapon = currentWeapon.weaponPrefab;
-        goWeapons = new GameObject[weapons.Length];
+        //currentWeapon = weapons[selectedWeapon];
+        //prefabCurrentWeapon = currentWeapon.weaponPrefab;
+        //goWeapons = new GameObject[weapons.Length];        
     }
 
     private void Start()
     {
-        InstantiateWeapons();
-        SelectWeapon();
+        //InstantiateWeapons();
+        //SelectWeapon();
     }
 
     private void Update()
     {
-
+        /*
         Mathf.Clamp(weapons.Length, 0, capacity);
 
         if (!isHolstered)
@@ -48,6 +48,7 @@ public class WeaponHolster : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
             HolsterWeapon(selectedWeapon);
+        */
     }
 
     private void InstantiateWeapons()

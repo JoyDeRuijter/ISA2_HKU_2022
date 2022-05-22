@@ -7,8 +7,6 @@ public class RangedWeapon : Weapon
     #region Variables
 
     [Header("Weapon Properties")]
-    public float damage;
-    public float range;
     public float reloadTime;
     public float maxAmmo;
     public float fireRate;
