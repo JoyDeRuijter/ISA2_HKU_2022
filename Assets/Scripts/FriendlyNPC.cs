@@ -1,21 +1,10 @@
 // Written by Joy de Ruijter
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class FriendlyNPC : NPC
 {
     #region Variables
-
-    public bool canReactToPlayer;
-    [HideInInspector] public float sightRange;
-
-    public bool canInteractWithPlayer;
-    [HideInInspector] public float interactRange;
-
-    public bool moves;
-
-    //[HideInInspector] public Direction currentDirection;
 
     #endregion
 
@@ -58,7 +47,5 @@ public class FriendlyNPC : NPC
             Gizmos.DrawWireSphere(transform.position, interactRange);
         }
     }
-
-    
 }
 

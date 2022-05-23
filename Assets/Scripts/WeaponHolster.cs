@@ -5,37 +5,40 @@ public class WeaponHolster : MonoBehaviour
 {
     #region Variables
 
-    [SerializeField] private int capacity = 2;
-    [SerializeField] private Weapon[] weapons;
+    public int capacity = 2;
+    public Weapon[] weapons;
 
     public bool isHolstered { get; private set; }
 
     private int selectedWeapon = 0;
 
     private Weapon currentWeapon;
-    private GameObject prefabCurrentWeapon;
-    private GameObject goCurrentWeapon;
     private GameObject[] goWeapons;
 
     #endregion
 
     private void Awake()
     {
-        //currentWeapon = weapons[selectedWeapon];
-        //prefabCurrentWeapon = currentWeapon.weaponPrefab;
-        //goWeapons = new GameObject[weapons.Length];        
+     
     }
 
     private void Start()
     {
-        //InstantiateWeapons();
-        //SelectWeapon();
+        if (weapons.Length == 0)
+            return;
+
+        currentWeapon = weapons[selectedWeapon];
+        goWeapons = new GameObject[weapons.Length];
+        InstantiateWeapons();
+        SelectWeapon();
     }
 
     private void Update()
     {
-        /*
         Mathf.Clamp(weapons.Length, 0, capacity);
+
+        if (capacity <= 1)
+            return;
 
         if (!isHolstered)
         {
@@ -48,7 +51,6 @@ public class WeaponHolster : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
             HolsterWeapon(selectedWeapon);
-        */
     }
 
     private void InstantiateWeapons()
@@ -75,7 +77,6 @@ public class WeaponHolster : MonoBehaviour
         {
             if (i == selectedWeapon)
             {
-                goCurrentWeapon = goWeapons[i];
                 currentWeapon = weapon;
                 goWeapons[i].SetActive(true);
             }

@@ -1,5 +1,6 @@
 // Written by Joy de Ruijter
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public enum NPCType {Friendly, Protective, Hostile}
@@ -26,6 +27,15 @@ public class NPC : MonoBehaviour
     protected Direction currentDirection;
     protected NodePath path;
     protected List<Transform> nodes = new List<Transform>();
+
+    // Checks for possible actions
+    public bool canReactToPlayer;
+    [HideInInspector] public float sightRange;
+
+    public bool canInteractWithPlayer;
+    [HideInInspector] public float interactRange;
+
+    public bool moves;
 
     #endregion
 
@@ -156,7 +166,7 @@ public class NPC : MonoBehaviour
 
     protected void CheckWaypointDistance()
     {
-        if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.5f)
+        if (Vector3.Distance(transform.position, nodes[currentNode].position) < 0.3f)
         {
             if (currentNode == nodes.Count - 1 && currentDirection == Direction.forward && !path.isACircuit)
             {

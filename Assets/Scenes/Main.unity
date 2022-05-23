@@ -177,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43874093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.97, y: 0, z: 11.54}
+  m_LocalPosition: {x: -4.63, y: 0, z: 12.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1597736366}
@@ -2410,17 +2410,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcType: 0
   name: Test
-  canReactToPlayer: 1
-  sightRange: 5.4
-  canInteractWithPlayer: 1
-  interactRange: 2
-  moves: 1
-  moveSpeed: 1.9
+  moveSpeed: 1.6
   pathTransform: {fileID: 1597736366}
   pathIsACircuit: 1
-  pathStartNode: 3
-  pathStartDirection: 1
+  pathStartNode: 2
+  pathStartDirection: 0
   currentNode: 0
+  canReactToPlayer: 1
+  sightRange: 3
+  canInteractWithPlayer: 1
+  interactRange: 1.99
+  moves: 1
 --- !u!136 &535084086
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4042,7 +4042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941077791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.45, y: 0, z: -2.78}
+  m_LocalPosition: {x: 4.73, y: 0, z: -5.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1597736366}
@@ -4837,7 +4837,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcType: 1
   name: Test
+  moveSpeed: 0
+  pathTransform: {fileID: 0}
+  pathIsACircuit: 0
+  pathStartNode: 0
+  pathStartDirection: 0
+  currentNode: 0
+  canReactToPlayer: 0
+  sightRange: 0
+  canInteractWithPlayer: 0
+  interactRange: 0
+  moves: 0
   holster: {fileID: 536767549}
+  weapon: {fileID: 11400000, guid: 7854e58664a6a4f4ab2fc392b03c5924, type: 2}
+  usesWeapon: 1
 --- !u!136 &1167417996
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5189,7 +5202,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcType: 2
   name: Test
+  moveSpeed: 0
+  pathTransform: {fileID: 0}
+  pathIsACircuit: 0
+  pathStartNode: 0
+  pathStartDirection: 0
+  currentNode: 0
+  canReactToPlayer: 0
+  sightRange: 0
+  canInteractWithPlayer: 0
+  interactRange: 0
+  moves: 0
   holster: {fileID: 1567439440}
+  weapon: {fileID: 11400000, guid: 4a5ae55c3478d6a47ac779922ef1b4bd, type: 2}
+  usesWeapon: 1
 --- !u!136 &1274758364
 CapsuleCollider:
   m_ObjectHideFlags: 0
