@@ -1074,6 +1074,7 @@ GameObject:
   - component: {fileID: 229738153}
   - component: {fileID: 229738150}
   - component: {fileID: 229738149}
+  - component: {fileID: 229738155}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1178,6 +1179,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &229738155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229738148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5a78f8e4493e140bc928e4a9ca3aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  holsterObject: {fileID: 1604941071}
+  testUnit: {fileID: 535084085}
 --- !u!1001 &249503785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2408,6 +2425,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 136b84cd6ae34fa49a0564d99bc3bbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
   npcType: 0
   name: Test
   moveSpeed: 1.6
@@ -2516,6 +2535,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capacity: 2
   weapons: []
+  selectedWeapon: 0
+  goWeapons: []
+  currentBehaviour: {fileID: 0}
 --- !u!4 &536767550
 Transform:
   m_ObjectHideFlags: 0
@@ -4835,6 +4857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 273d7b00c95a40944a482cd37cba47e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
   npcType: 1
   name: Test
   moveSpeed: 0
@@ -5200,6 +5224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d72151ccc7680d4795b2ea239ef2085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
   npcType: 2
   name: Test
   moveSpeed: 0
@@ -6371,6 +6397,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capacity: 2
   weapons: []
+  selectedWeapon: 0
+  goWeapons: []
+  currentBehaviour: {fileID: 0}
 --- !u!4 &1567439441
 Transform:
   m_ObjectHideFlags: 0
@@ -6534,6 +6563,9 @@ MonoBehaviour:
   weapons:
   - {fileID: 11400000, guid: 7854e58664a6a4f4ab2fc392b03c5924, type: 2}
   - {fileID: 11400000, guid: 4a5ae55c3478d6a47ac779922ef1b4bd, type: 2}
+  selectedWeapon: 0
+  goWeapons: []
+  currentBehaviour: {fileID: 0}
 --- !u!1 &1609211687
 GameObject:
   m_ObjectHideFlags: 0

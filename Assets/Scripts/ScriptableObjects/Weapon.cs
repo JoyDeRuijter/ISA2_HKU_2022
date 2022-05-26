@@ -13,7 +13,7 @@ public class Weapon : ScriptableObject
     public GameObject weaponPrefab;
 
     [Header("Weapon Properties")]
-    public float damage;
+    public int damage;
     public float range;
 
     [Header("Spawn Data")]
@@ -22,11 +22,4 @@ public class Weapon : ScriptableObject
     public Quaternion spawnRotation;
 
     #endregion
-
-    public virtual void Attack()
-    {
-        Debug.Log("Attacked with " + name);
-        // Add attack animations
-        // Add specific attack logic 
-    }
 }

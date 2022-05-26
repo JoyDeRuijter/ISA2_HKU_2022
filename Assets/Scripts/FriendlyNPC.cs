@@ -26,6 +26,9 @@ public class FriendlyNPC : NPC
             InitializePath();
             transform.position = nodes[pathStartNode].position;
         }
+
+        maxHealth = 100;
+        currentHealth = maxHealth;
     }
 
     private void Update()

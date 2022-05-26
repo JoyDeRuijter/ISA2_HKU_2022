@@ -14,15 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Hand gun
   weaponPrefab: {fileID: 7971692709640081634, guid: a34966240f50b5a41a06204cacaae883, type: 3}
+  damage: 20
+  range: 2000
   spawnPosition: {x: 0.14, y: 0.05, z: -0.03}
   spawnRotation: {x: -0.72061664, y: 0.38588902, z: -0.43663138, w: 0.3757052}
-  damage: 10
-  range: 75
   reloadTime: 1.2
   maxAmmo: 11
   fireRate: 0.4
+  impactForce: 0
+  muzzleFlashLocation: {x: 0, y: 0, z: 0}
   muzzleFlash: {fileID: 0}
+  impactEffect: {fileID: 0}
+  bloodEffect: {fileID: 0}
   weaponAnimator: {fileID: 0}
   icon: {fileID: 0}
   shotSound: {fileID: 0}
   reloadSound: {fileID: 0}
+  currentAmmo: -168
+  isReloading: 0

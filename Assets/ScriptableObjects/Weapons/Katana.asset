@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Katana
   weaponPrefab: {fileID: 5501580820078354631, guid: 85917300f773f6340aacad7a1b497892, type: 3}
+  damage: 50
+  range: 20
   spawnPosition: {x: 0.12, y: 0.06, z: 0}
   spawnRotation: {x: -0.80956787, y: -0.09101657, z: -0.13039641, w: 0.56507766}

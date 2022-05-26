@@ -10,16 +10,19 @@ public class WeaponHolster : MonoBehaviour
 
     public bool isHolstered { get; private set; }
 
-    private int selectedWeapon = 0;
+    [HideInInspector] public int selectedWeapon = 0;
 
     private Weapon currentWeapon;
-    private GameObject[] goWeapons;
+    [HideInInspector] public GameObject[] goWeapons;
+
+    private WeaponBehaviour[] behaviours = new WeaponBehaviour[2]; // 0 is melee, 1 is ranged
+    [HideInInspector] public WeaponBehaviour currentBehaviour;
 
     #endregion
 
     private void Awake()
     {
-     
+        InitializeWeaponBehaviours();
     }
 
     private void Start()
@@ -28,6 +31,9 @@ public class WeaponHolster : MonoBehaviour
             return;
 
         currentWeapon = weapons[selectedWeapon];
+
+        LoadWeaponBehaviour();
+        
         goWeapons = new GameObject[weapons.Length];
         InstantiateWeapons();
         SelectWeapon();
@@ -53,6 +59,12 @@ public class WeaponHolster : MonoBehaviour
             HolsterWeapon(selectedWeapon);
     }
 
+    private void InitializeWeaponBehaviours()
+    {
+        behaviours[0] = gameObject.AddComponent<MeleeWeaponBehaviour>();
+        behaviours[1] = gameObject.AddComponent<RangedWeaponBehaviour>();
+    }
+
     private void InstantiateWeapons()
     {
         for(int i = 0; i < weapons.Length; i++)
@@ -66,7 +78,6 @@ public class WeaponHolster : MonoBehaviour
             instantiateObject.transform.localPosition = weapons[i].spawnPosition;
             instantiateObject.transform.localRotation = weapons[i].spawnRotation;
             goWeapons[i] = instantiateObject;
-            //goWeapons[i].SetActive(false);
         }
     }
 
@@ -84,6 +95,21 @@ public class WeaponHolster : MonoBehaviour
                 goWeapons[i].SetActive(false);
 
             i++;
+        }
+        LoadWeaponBehaviour();
+    }
+
+    private void LoadWeaponBehaviour()
+    {
+        if (currentWeapon.GetType() == typeof(MeleeWeapon))
+        {
+            currentBehaviour = behaviours[0];
+            currentBehaviour.weapon = currentWeapon;
+        }
+        else if (currentWeapon.GetType() == typeof(RangedWeapon))
+        {
+            currentBehaviour = behaviours[1];
+            currentBehaviour.weapon = currentWeapon;
         }
     }
 
@@ -124,14 +150,12 @@ public class WeaponHolster : MonoBehaviour
         if (isHolstered)
         {
             isHolstered = false;
-            // re-enable shooting
             goWeapons[selectedWeapon].SetActive(true);
         }
 
         else if (!isHolstered)
         {
             isHolstered = true;
-            // disable shooting
             goWeapons[selectedWeapon].SetActive(false);
         }
     }

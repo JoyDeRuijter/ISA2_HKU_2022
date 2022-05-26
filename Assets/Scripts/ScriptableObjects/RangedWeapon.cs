@@ -10,10 +10,14 @@ public class RangedWeapon : Weapon
     public float reloadTime;
     public float maxAmmo;
     public float fireRate;
+    public float impactForce;
 
     [Header("Weapon Visualisations")]
     [Space(10)]
+    public Vector3 muzzleFlashLocation;
     public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
+    public GameObject bloodEffect;
     public Animator weaponAnimator;
     public Sprite icon;
 
@@ -22,17 +26,13 @@ public class RangedWeapon : Weapon
     public AudioSource shotSound;
     public AudioSource reloadSound;
 
-    private float currentAmmo;
+    [HideInInspector] public float currentAmmo;
+    [HideInInspector] public bool isReloading;
 
     #endregion
 
     private void Awake()
     {
         currentAmmo = maxAmmo;
-    }
-
-    private void Update()
-    {
-        Mathf.Clamp(currentAmmo, 0, maxAmmo);
     }
 }

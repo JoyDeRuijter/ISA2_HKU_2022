@@ -7,14 +7,4 @@ public class MeleeWeapon : Weapon
     #region Variables
     
     #endregion
-
-    private void Awake()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
-    }
 }

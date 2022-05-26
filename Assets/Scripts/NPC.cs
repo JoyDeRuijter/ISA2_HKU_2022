@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public enum NPCType {Friendly, Protective, Hostile}
 
-public class NPC : MonoBehaviour
+public class NPC : Unit
 {
     #region Variables
 
@@ -29,13 +29,11 @@ public class NPC : MonoBehaviour
     protected List<Transform> nodes = new List<Transform>();
 
     // Checks for possible actions
-    public bool canReactToPlayer;
+    [HideInInspector] public bool canReactToPlayer;
     [HideInInspector] public float sightRange;
-
-    public bool canInteractWithPlayer;
+    [HideInInspector] public bool canInteractWithPlayer;
     [HideInInspector] public float interactRange;
-
-    public bool moves;
+    [HideInInspector] public bool moves;
 
     #endregion
 
