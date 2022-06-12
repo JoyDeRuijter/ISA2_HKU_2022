@@ -20,12 +20,12 @@ public class RangedWeaponBehaviour : WeaponBehaviour
 
         if (_attacker.gameObject.GetComponent<Player>() != null)
         {
-            Debug.Log("Player is actually shooting");
-            PlayerShoot(_holster);
+            //PlayerShoot(_holster);
+            // replace this with the thirdpersonshootercontroller logic
         }
         else if (_attacker.gameObject.GetComponent<NPC>() != null)
         { 
-            NPCShoot();
+            //NPCShoot();
         }
 
     }
@@ -40,10 +40,8 @@ public class RangedWeaponBehaviour : WeaponBehaviour
 
         if (Physics.Raycast(transform.position, camera.transform.forward, out _hit, rangedWeapon.range))
         {
-            Debug.Log("Hit: " + _hit.transform.gameObject.name);
             if (_hit.transform.gameObject.GetComponent<NPC>() != null)
             {
-                Debug.Log("Hit an npc");
                 NPC _npc = _hit.transform.gameObject.GetComponent<NPC>();
                 _npc.TakeDamage(weapon.damage);
             }
